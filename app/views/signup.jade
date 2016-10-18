@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    title Signup
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    script(src='https://use.fontawesome.com/e5cb7ed628.js')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
+    style(type='text/css').
+      body{
+      padding: 10vw 4vw 2vw 4vw;
+      }
+  body
+    .container
+      .row
+        .jumbotron.text-center
+          h1
+            span.fa.fa-sign-in
+            | Signup
+            -if(message.length>0)
+                .alert.alert-danger !{message}
+          form(action='/signup', method='post')
+            .form-group
+              label Email
+              input.form-control(type='text', name='email')
+            .form-group
+              label Password
+              input.form-control(type='password', name='password')
+            button.btn.btn-warning(type='submit') Submit
+          hr
+          p
+            | Already have an account?
+            a(href='/login/screen') Login
+          p
+            | Or go to
+            a(href='/') Home
